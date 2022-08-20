@@ -13,7 +13,7 @@ import java.util.Map;
  */
 @Data
 @ApiModel(value = "全局统一返回结果")
-public class R {
+public  class R {
 
     @ApiModelProperty(value = "是否成功")
     private Boolean success;
@@ -25,7 +25,7 @@ public class R {
     private String message;
 
     @ApiModelProperty(value = "返回数据")
-    private Map<String, Object> data = new HashMap<String, Object>();
+    private Object data = new Object();
 
     public R(){}
 
@@ -68,13 +68,10 @@ public class R {
         return this;
     }
 
-    public R data(String key, Object value){
-        this.data.put(key, value);
+    public R setData(Object value){
+        this.data = value;
         return this;
     }
 
-    public R data(Map<String, Object> map){
-        this.setData(map);
-        return this;
-    }
+
 }

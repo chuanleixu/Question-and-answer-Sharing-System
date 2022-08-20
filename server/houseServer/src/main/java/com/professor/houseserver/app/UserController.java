@@ -1,9 +1,11 @@
 package com.professor.houseserver.app;
 
+import com.professor.houseserver.domain.wxresponse.Code2Session;
 import com.professor.houseserver.result.R;
 import com.professor.houseserver.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,8 +35,8 @@ public class UserController {
     @GetMapping("login")
     public R login(@ApiParam(value = "临时登录凭证 code",required = true) @RequestParam("jsCode") String jsCode){
 
-        userService.login(jsCode);
-        return R.ok();
+        Code2Session code2Session = userService.login(jsCode);
+        return R.ok().setData(code2Session);
 
     }
 
