@@ -1,12 +1,18 @@
 package com.professor.houseserver.domain;
 
 
-/**
- * 回答类
- * 采用注解方式进行创建数据库
- * @author xzx
- */
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+@Data
+@ApiModel("回答问题实体")
 public class Answer {
+
+	@TableId(type = IdType.AUTO)
+	@ApiModelProperty("主键id")
 	private Integer id;
 	
 	//回答内容
@@ -18,11 +24,11 @@ public class Answer {
 	//回答创建时间
 	private String createTime;
 	
-	//关联用户
-	private User user;
+	//回答用户id
+	private Long userId;
 	
-	//关联问题
-	private Question question;
+	//回答问题id
+	private Long questionId;
 
 
 }

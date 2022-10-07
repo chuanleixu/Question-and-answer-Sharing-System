@@ -1,21 +1,20 @@
-package com.professor.houseserver.domain;
+package com.professor.houseserver.domain.vo;
 
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.professor.houseserver.domain.Answer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author xuchuanlei
- * @since 2022/8/20-14:53
- */
-@TableName("question")
+ * @since 2022/10/3-12:09
+ **/
+@Data
 @ApiModel("提问问题实体")
-public class Question {
+public class QuestionAnswerDTO {
 
-    @TableId(type = IdType.AUTO)
     @ApiModelProperty("主键id")
     private Long id;
 
@@ -36,7 +35,7 @@ public class Question {
     private String quesdUserId;
 
     //被提问用户的姓名
-    @ApiModelProperty("")
+    @ApiModelProperty("被提问用户姓名")
     private String quesdUserName;
 
     @ApiModelProperty("提问用户的id")
@@ -45,5 +44,6 @@ public class Question {
     @ApiModelProperty("提问用户的姓名")
     private String quesUserName;
 
-
+    @ApiModelProperty("答案")
+    private List<Answer> answers;
 }

@@ -1,12 +1,18 @@
 package com.professor.houseserver.domain;
 
 
-/**
- * 通知类 
- * 采用注解方式进行创建数据库
- * @author xzx
- */
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+@Data
+@ApiModel("消息实体")
 public class Message {
+
+	@TableId(type = IdType.AUTO)
+	@ApiModelProperty("主键id")
 	private Integer id;
 	
 	//通知类型

@@ -1,12 +1,18 @@
 package com.professor.houseserver.domain;
 
 
-/**
- * 评论类
- * 采用注解方式进行创建数据库
- * @author xzx
- */
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+@Data
+@ApiModel("评论实体")
 public class Comment {
+
+	@TableId(type = IdType.AUTO)
+	@ApiModelProperty("主键id")
 	private Integer id;
 	
 	//评论内容

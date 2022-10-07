@@ -28,3 +28,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis plus sql语句打印的配置
   mapper-locations: classpath:com/professor/houseserver/dao/*.xml
 
+logging:
+  level:
+    com.professor.houseserver: debug
+
