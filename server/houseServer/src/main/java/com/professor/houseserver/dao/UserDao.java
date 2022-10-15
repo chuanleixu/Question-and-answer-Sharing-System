@@ -1,5 +1,7 @@
 package com.professor.houseserver.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.professor.houseserver.domain.User;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -7,5 +9,5 @@ import org.springframework.stereotype.Repository;
  * @since 2022/8/13-14:30
  **/
 @Repository
-public class UserDao {
+public interface UserDao extends BaseMapper<User> {
 }

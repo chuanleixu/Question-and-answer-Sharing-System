@@ -1,5 +1,6 @@
 package com.professor.houseserver.app;
 
+import com.professor.houseserver.domain.User;
 import com.professor.houseserver.domain.wxresponse.Code2Session;
 import com.professor.houseserver.result.R;
 import com.professor.houseserver.service.UserService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author xuchuanlei
@@ -29,6 +31,16 @@ public class UserController {
 
         return R.ok();
     }
+
+    @ApiOperation(value = "查询可以被提问的人")
+    @GetMapping("list/quesd")
+    public R listQuesd(){
+
+        List<User> userList = userService.listQuesd();
+
+        return R.ok().setData(userList);
+    }
+
 
 
     @ApiOperation(value = "微信验证登陆",notes = "根据临时登陆凭证code登陆")

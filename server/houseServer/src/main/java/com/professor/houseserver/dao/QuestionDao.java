@@ -8,7 +8,6 @@ import com.professor.houseserver.domain.vo.QuestionQueryVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 /**
  * @author xuchuanlei

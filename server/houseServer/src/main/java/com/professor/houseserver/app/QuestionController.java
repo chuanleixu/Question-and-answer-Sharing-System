@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author xuchuanlei
@@ -48,11 +49,32 @@ public class QuestionController {
         return R.ok();
     }
 
+    @ApiOperation(value = "修改提问",notes = "用户修改提问的问题")
+    @PutMapping("update")
+    public R update(@RequestBody Question question){
+
+        questionService.updateById(question);
+
+        return R.ok();
+    }
+
     @ApiOperation(value = "删除提问",notes = "删除问题")
     @DeleteMapping("remove")
     public R remove(Long [] ids){
 
         questionService.removeByIds(Arrays.asList(ids));
         return R.ok();
+    }
+
+
+    @ApiOperation(value = "列出所有问题")
+    @GetMapping("listAll")
+    public R listAll(){
+
+        List<Question> questionList = questionService.list();
+
+        return R.ok().setData(questionList);
+
+
     }
 }
